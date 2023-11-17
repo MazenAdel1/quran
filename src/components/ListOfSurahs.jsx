@@ -7,7 +7,7 @@ export default function ListOfSurahs() {
   const [surahs, setSurahs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://api.alquran.cloud/v1/surah`)
+    fetch(`//api.alquran.cloud/v1/surah`)
       .then((res) => res.json())
       .then((data) => setSurahs(data.data));
   }, []);

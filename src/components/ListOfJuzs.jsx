@@ -42,7 +42,7 @@ export default function ListOfJuzs() {
   useEffect(() => {
     if (times <= 30) {
       const fetchJuzs = async () => {
-        let res = await fetch(`http://api.alquran.cloud/v1/juz/${times}`);
+        let res = await fetch(`//api.alquran.cloud/v1/juz/${times}`);
         const data = await res.json();
 
         setJuzsInfo((curr) => {

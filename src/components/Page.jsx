@@ -25,7 +25,7 @@ export default function Page() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`http://api.alquran.cloud/v1/page/${+pageNumber}`)
+    fetch(`//api.alquran.cloud/v1/page/${+pageNumber}`)
       .then((res) => res.json())
       .then((data) => {
         setAyahs(data.data.ayahs);

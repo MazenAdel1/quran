@@ -12,7 +12,7 @@ export default function Surah() {
   const [ayahs, setAyahs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://api.alquran.cloud/v1/surah`)
+    fetch(`//api.alquran.cloud/v1/surah`)
       .then((res) => res.json())
       .then((data) => setSurahs(data.data));
   }, []);
@@ -27,7 +27,7 @@ export default function Surah() {
 
     if (surahNumber) {
       setAyahs([]);
-      fetch(`http://api.alquran.cloud/v1/surah/${surahNumber}`)
+      fetch(`//api.alquran.cloud/v1/surah/${surahNumber}`)
         .then((res) => res.json())
         .then((data) => {
           data.data.ayahs ? setAyahs([...data.data.ayahs]) : false;
