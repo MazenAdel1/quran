@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import ListOfSurahs from "./components/ListOfSurahs";
 import Surah from "./components/Surah";
 import Page from "./components/Page";
 import Aside from "./components/Aside";
@@ -16,7 +15,7 @@ function App() {
 
       <Routes>
         <Route
-          path="/"
+          path="/quran"
           element={
             <>
               <LandingPage />
@@ -24,7 +23,7 @@ function App() {
           }
         />
         <Route
-          path="/:surah"
+          path="/quran/:surah"
           element={
             <>
               <Aside />
@@ -33,7 +32,7 @@ function App() {
           }
         />
         <Route
-          path="/page/:pageNumber"
+          path="/quran/page/:pageNumber"
           element={
             <>
               <Aside />

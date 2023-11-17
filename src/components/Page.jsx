@@ -70,7 +70,6 @@ export default function Page() {
     saveButtonRef.current.classList.toggle(`text-white`);
   };
 
-  surahs && console.log(Object.entries(surahs));
   return (
     <>
       <button onClick={bookmarkPage}>
@@ -139,7 +138,7 @@ export default function Page() {
         </span>
       </div>
       <Link
-        to={`/page/${+pageNumber + 1}`}
+        to={`/quran/page/${+pageNumber + 1}`}
         onClick={() => {
           +pageNumber++;
           saveButtonRef.current.classList.remove(`text-accent`);
@@ -151,7 +150,7 @@ export default function Page() {
         <FontAwesomeIcon icon={faArrowLeft} />
       </Link>
       <Link
-        to={`/page/${+pageNumber - 1}`}
+        to={`/quran/page/${+pageNumber - 1}`}
         onClick={() => {
           +pageNumber--;
           saveButtonRef.current.classList.remove(`text-accent`);

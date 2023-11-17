@@ -26,7 +26,7 @@ export default function ListOfSurahs() {
           surahs.map((surah) => {
             return (
               <Link
-                to={`/${surah.englishName}`}
+                to={`/quran/${surah.englishName}`}
                 key={surah.number}
                 className={`flex justify-between items-center relative w-full sm:px-10 px-3 py-4 text-primary-white hover:bg-[#172236] transition bg-[#121C34] ${
                   surah.number < 114 && "border-b"

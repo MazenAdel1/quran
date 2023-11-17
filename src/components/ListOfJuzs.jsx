@@ -74,7 +74,7 @@ export default function ListOfJuzs() {
                   }`}
                 >
                   <Link
-                    to={`/page/${juzInfo.page}`}
+                    to={`/quran/page/${juzInfo.page}`}
                     className="w-full h-full block py-3"
                   >
                     {juzInfo.title}
