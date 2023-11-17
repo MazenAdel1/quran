@@ -5,7 +5,6 @@ import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Surah() {
   let { surah } = useParams();
-  console.log(surah);
 
   const [surahs, setSurahs] = useState([]);
   const [arabicSurahName, setArabicSurahName] = useState("");
