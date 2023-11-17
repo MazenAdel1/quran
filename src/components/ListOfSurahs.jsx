@@ -5,12 +5,36 @@ import { Link } from "react-router-dom";
 
 export default function ListOfSurahs() {
   const [surahs, setSurahs] = useState([]);
+  // const [surahsDetails, setSurahsDetails] = useState([]);
 
   useEffect(() => {
-    fetch(`//api.alquran.cloud/v1/surah`)
+    fetch(`https://api.quran.com/api/v4/chapters`)
       .then((res) => res.json())
-      .then((data) => setSurahs(data.data));
+      .then((data) => setSurahs(data.chapters));
+
+    // surahs.map((surah) => {
+    //   fetch(`https://api.quran.com/api/v4/chapters/${surah.number}`)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       setSurahsDetails((prev) => [
+    //         ...prev,
+    //         {
+    //           surahNumber: surah.number,
+    //           surahEnglishName: surah.englishName,
+    //           surahArabicName: surah.name,
+    //           surahAyahsAmount: surah.numberOfAyahs,
+    //           surahRevelationType: surah.revelationType,
+    //           pageNumber: data.chapter.pages[0],
+    //         },
+    //       ]);
+    //       console.log(data);
+    //     });
+    // });
   }, []);
+
+  useEffect(() => {}, []);
+
+  console.log(surahs);
 
   return (
     <>
@@ -26,19 +50,19 @@ export default function ListOfSurahs() {
           surahs.map((surah) => {
             return (
               <Link
-                to={`/quran/${surah.englishName}`}
-                key={surah.number}
+                to={`/quran/page/${surah.pages[0]}`}
+                key={surah.name_simple}
                 className={`flex justify-between items-center relative w-full sm:px-10 px-3 py-4 text-primary-white hover:bg-[#172236] transition bg-[#121C34] ${
-                  surah.number < 114 && "border-b"
+                  surah.id < 114 && "border-b"
                 }`}
               >
-                <span className="text-base">{surah.number}</span>
+                <span className="text-base">{surah.id}</span>
                 <h2 className="sm:text-2xl text-xl">
-                  {surah.name}{" "}
-                  <span className="text-xs">[{surah.numberOfAyahs} آية]</span>
+                  سورة {surah.name_arabic}{" "}
+                  <span className="text-xs">[{surah.verses_count} آية]</span>
                 </h2>
                 <h3 className="text-lg">
-                  {surah.revelationType === "Meccan" ? "مكية" : "مدنية"}
+                  {surah.revelation_place === "makkah" ? "مكية" : "مدنية"}
                 </h3>
               </Link>
             );
