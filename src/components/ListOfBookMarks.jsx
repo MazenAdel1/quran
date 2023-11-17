@@ -31,7 +31,7 @@ export default function ListOfBookMarks() {
                 pageIndex != bookmark.length - 1 && "border-b"
               }`}
             >
-              <Link to={`/page/${page}`} className="block w-full">
+              <Link to={`/quran/page/${page}`} className="block w-full">
                 صفحة {page}
               </Link>
               <button

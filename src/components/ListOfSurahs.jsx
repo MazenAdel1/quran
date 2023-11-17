@@ -5,36 +5,12 @@ import { Link } from "react-router-dom";
 
 export default function ListOfSurahs() {
   const [surahs, setSurahs] = useState([]);
-  // const [surahsDetails, setSurahsDetails] = useState([]);
 
   useEffect(() => {
     fetch(`https://api.quran.com/api/v4/chapters`)
       .then((res) => res.json())
       .then((data) => setSurahs(data.chapters));
-
-    // surahs.map((surah) => {
-    //   fetch(`https://api.quran.com/api/v4/chapters/${surah.number}`)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       setSurahsDetails((prev) => [
-    //         ...prev,
-    //         {
-    //           surahNumber: surah.number,
-    //           surahEnglishName: surah.englishName,
-    //           surahArabicName: surah.name,
-    //           surahAyahsAmount: surah.numberOfAyahs,
-    //           surahRevelationType: surah.revelationType,
-    //           pageNumber: data.chapter.pages[0],
-    //         },
-    //       ]);
-    //       console.log(data);
-    //     });
-    // });
   }, []);
-
-  useEffect(() => {}, []);
-
-  console.log(surahs);
 
   return (
     <>
