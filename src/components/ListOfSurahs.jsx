@@ -7,10 +7,20 @@ export default function ListOfSurahs() {
   const [surahs, setSurahs] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.quran.com/api/v4/chapters`)
-      .then((res) => res.json())
-      .then((data) => setSurahs(data.chapters));
+    if (localStorage.getItem(`surahs`)) {
+      setSurahs(JSON.parse(localStorage.getItem(`surahs`)));
+    } else {
+      fetch(`https://api.quran.com/api/v4/chapters`)
+        .then((res) => res.json())
+        .then((data) => setSurahs(data.chapters));
+    }
   }, []);
+
+  useEffect(() => {
+    if (surahs.length === 114) {
+      localStorage.setItem(`surahs`, JSON.stringify(surahs));
+    }
+  }, [surahs]);
 
   return (
     <>
