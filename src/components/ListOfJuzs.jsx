@@ -40,18 +40,20 @@ export default function ListOfJuzs() {
   ]);
 
   useEffect(() => {
-    if (sessionStorage.getItem(`juzs`)) {
-      setJuzsInfo(JSON.parse(sessionStorage.getItem(`juzs`)));
+    if (localStorage.getItem(`juzs`)) {
+      setJuzsInfo(JSON.parse(localStorage.getItem(`juzs`)));
     } else {
       if (times <= 30) {
         const fetchJuzs = async () => {
-          let res = await fetch(`//api.alquran.cloud/v1/juz/${times}`);
+          let res = await fetch(
+            `https://api.quran.com/api/v4/verses/by_juz/${times}`
+          );
           const data = await res.json();
 
           setJuzsInfo((curr) => {
             return curr.map((el, index) => {
               if (index + 1 === times) {
-                return { ...el, page: data.data.ayahs[0].page };
+                return { ...el, page: data.verses[0].page_number };
               } else {
                 return el;
               }
@@ -66,7 +68,7 @@ export default function ListOfJuzs() {
 
   useEffect(() => {
     if (juzsInfo[29].page === 582) {
-      sessionStorage.setItem(`juzs`, JSON.stringify(juzsInfo));
+      localStorage.setItem(`juzs`, JSON.stringify(juzsInfo));
     }
   }, [juzsInfo]);
 
