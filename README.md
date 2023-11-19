@@ -1,4 +1,5 @@
 # Quran API
 
--https://alquran.cloud/api
--https://api-docs.quran.com/docs/category/quran.com-api
+OLD ONE ~~-https://alquran.cloud/api~~ 
+
+THE CURRENT `-https://api-docs.quran.com/docs/category/quran.com-api`
