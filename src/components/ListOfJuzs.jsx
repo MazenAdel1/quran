@@ -40,8 +40,8 @@ export default function ListOfJuzs() {
   ]);
 
   useEffect(() => {
-    if (localStorage.getItem(`juzs`)) {
-      setJuzsInfo(JSON.parse(localStorage.getItem(`juzs`)));
+    if (sessionStorage.getItem(`juzs`)) {
+      setJuzsInfo(JSON.parse(sessionStorage.getItem(`juzs`)));
     } else {
       if (times <= 30) {
         const fetchJuzs = async () => {
@@ -66,7 +66,7 @@ export default function ListOfJuzs() {
 
   useEffect(() => {
     if (juzsInfo[29].page === 582) {
-      localStorage.setItem(`juzs`, JSON.stringify(juzsInfo));
+      sessionStorage.setItem(`juzs`, JSON.stringify(juzsInfo));
     }
   }, [juzsInfo]);
 
