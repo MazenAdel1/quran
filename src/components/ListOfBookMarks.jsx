@@ -36,7 +36,10 @@ export default function ListOfBookMarks() {
               </Link>
               <button
                 className="bg-accent text-white flex justify-center items-center px-1 mr-2"
-                onClick={() => dispatch(deleteBookmark(page))}
+                onClick={() => {
+                  dispatch(deleteBookmark(page));
+                  dispatch(saveToLocalStorage(bookmark));
+                }}
               >
                 <FontAwesomeIcon icon={faX} />
               </button>
