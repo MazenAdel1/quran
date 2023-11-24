@@ -46,7 +46,7 @@ export default function Page() {
       saveButtonRef.current.classList.add(`text-white`);
       saveButtonRef.current.classList.remove(`text-accent`);
     }
-  }, [pageNumber]);
+  });
 
   useEffect(() => {
     if (!bookmark.includes(pageNumber)) {
