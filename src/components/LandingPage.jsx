@@ -30,9 +30,10 @@ export default function LandingPage() {
         <h1 className="text-2xl font-bold underline">في فضل القرآن</h1>
         <p className="text-center text-xl">
           <i>
-            أن النبي صلى الله عليه وسلم قال: (من قرأ حرفاً من كتاب الله فله به
-            حسنة، والحسنة بعشر أمثالها، لا أقول: &quot;الم&quot; حرف، ولكن
-            &quot;ألف&quot; حرف، و &quot;لام&quot; حرف، و &quot;ميم&quot; حرف).
+            أن النبي صلى الله عليه وسلم قال: {"("}من قرأ حرفاً من كتاب الله فله
+            به حسنة، والحسنة بعشر أمثالها، لا أقول: &quot;الم&quot; حرف، ولكن
+            &quot;ألف&quot; حرف، و &quot;لام&quot; حرف، و &quot;ميم&quot; حرف
+            {")"}.
           </i>
         </p>
       </div>
