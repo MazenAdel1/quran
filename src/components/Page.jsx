@@ -143,7 +143,7 @@ export default function Page() {
           +pageNumber++;
           saveButtonRef.current.classList.remove(`text-accent`);
         }}
-        className={`text-xl sm:text-2xl ${
+        className={`text-xl opacity-60 transition hover:opacity-100 focus-visible:opacity-100 sm:text-2xl ${
           +pageNumber === 604 && "hidden"
         } fixed left-1 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black text-primary-white sm:h-12 sm:w-12`}
       >
@@ -155,7 +155,7 @@ export default function Page() {
           +pageNumber--;
           saveButtonRef.current.classList.remove(`text-accent`);
         }}
-        className={`text-xl sm:text-2xl ${
+        className={`text-xl opacity-60 transition hover:opacity-100 focus-visible:opacity-100 sm:text-2xl ${
           +pageNumber === 1 && "hidden"
         } fixed right-1 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black text-primary-white sm:h-12 sm:w-12`}
       >
