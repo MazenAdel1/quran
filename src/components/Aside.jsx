@@ -34,21 +34,21 @@ export default function Aside() {
     <>
       <button
         onClick={handlingAsideStatus}
-        className="text-white transition-all text-3xl right-8 top-4 fixed  z-10"
+        className="fixed right-8 top-4 z-10 text-3xl text-white transition-all"
       >
         <FontAwesomeIcon icon={faBookOpen} />
       </button>
       <aside
         ref={asideRef}
-        className="text-white text-3xl fixed  transition-all duration-300 bg-[#101a2e] sm:w-[400px] w-[250px] flex flex-col top-14 -right-full h-[calc(100dvh-44px)] z-10 overflow-y-scroll "
+        className="fixed -right-full top-14 z-10 flex h-[calc(100dvh-44px)] w-[250px] flex-col overflow-y-auto bg-[#101a2e] text-3xl text-white transition-all duration-300 sm:w-[400px]"
       >
-        <nav className="z-10  relative">
-          <ul className="flex w-full sticky top-0 bg-orange right-0 z-50">
+        <nav className="relative z-10">
+          <ul className="sticky right-0 top-0 z-50 flex w-full bg-orange">
             {categories.map((el) => {
               return (
-                <li className="flex-1 sm:text-3xl text-xl" key={el.title}>
+                <li className="flex-1 text-xl sm:text-3xl" key={el.title}>
                   <button
-                    className={`w-full text-center hover:bg-[#ffb066] transition py-1 ${
+                    className={`w-full py-1 text-center transition hover:bg-[#ffb066] ${
                       el.active && "bg-[#d8873b]"
                     }`}
                     onClick={handlingCategoryClick}

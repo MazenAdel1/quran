@@ -14,9 +14,9 @@ export default function ListOfBookMarks() {
   return (
     <>
       {bookmark.length ? (
-        <ul className="flex flex-col justify-center items-center">
+        <ul className="flex flex-col items-center justify-center">
           <button
-            className="bg-accent text-white w-full text-2xl py-1 my-1 hover:bg-[#f88062] transition"
+            className="my-1 w-full bg-accent py-1 text-2xl text-white transition hover:bg-[#f88062]"
             onClick={() => {
               dispatch(cleanBookmark());
               dispatch(saveToLocalStorage(bookmark));
@@ -27,7 +27,7 @@ export default function ListOfBookMarks() {
           {bookmark.map((page, pageIndex) => (
             <li
               key={page}
-              className={`w-full flex flex-row-reverse bg-[#121C34] transition hover:bg-[#172236] py-2 text-center text-primary-white text-3xl ${
+              className={`flex w-full flex-row-reverse bg-[#121C34] py-2 text-center text-3xl text-primary-white transition hover:bg-[#172236] ${
                 pageIndex != bookmark.length - 1 && "border-b"
               }`}
             >
@@ -35,7 +35,7 @@ export default function ListOfBookMarks() {
                 صفحة {page}
               </Link>
               <button
-                className="bg-accent text-white flex justify-center items-center px-1 mr-2"
+                className="mr-2 flex items-center justify-center bg-accent px-1 text-white"
                 onClick={() => {
                   dispatch(deleteBookmark(page));
                   dispatch(saveToLocalStorage(bookmark));
@@ -47,7 +47,7 @@ export default function ListOfBookMarks() {
           ))}
         </ul>
       ) : (
-        <div className="w-full text-white flex justify-center items-center text-3xl min-h-[180px]">
+        <div className="flex min-h-[180px] w-full items-center justify-center text-3xl text-white">
           ليس لديك مرجعيات
         </div>
       )}

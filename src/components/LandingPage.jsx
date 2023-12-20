@@ -24,11 +24,11 @@ export default function LandingPage() {
 
   return (
     <>
-      <div className="absolute bg-secondary w-[100px] h-[100px] rounded-full blur-[200px] -z-10"></div>
-      <div className="absolute bg-secondary w-[100px] h-[100px] rounded-full blur-[200px] -z-10 left-0 top-1/2 -translate-y-1/2"></div>
-      <div className="text-primary-white flex flex-col items-center gap-5 pt-8 mb-10 px-5">
-        <h1 className="text-2xl underline font-bold">في فضل القرآن</h1>
-        <p className="text-xl text-center">
+      <div className="absolute -z-10 h-[100px] w-[100px] rounded-full bg-secondary blur-[200px]"></div>
+      <div className="absolute left-0 top-1/2 -z-10 h-[100px] w-[100px] -translate-y-1/2 rounded-full bg-secondary blur-[200px]"></div>
+      <div className="mb-10 flex flex-col items-center gap-5 px-5 pt-8 text-primary-white">
+        <h1 className="text-2xl font-bold underline">في فضل القرآن</h1>
+        <p className="text-center text-xl">
           <i>
             أن النبي صلى الله عليه وسلم قال: (من قرأ حرفاً من كتاب الله فله به
             حسنة، والحسنة بعشر أمثالها، لا أقول: "الم" حرف، ولكن "ألف" حرف،
@@ -38,14 +38,14 @@ export default function LandingPage() {
       </div>
 
       <div className="container mx-auto sm:px-32 ">
-        <nav className="z-10 container mx-auto w-full relative">
-          <div className="sm:absolute sm:left-full h-full sticky">
-            <ul className="flex w-full sticky top-0 bg-orange right-0 z-50 sm:flex-col sm:w-fit sm:right-0 sm:top-0">
+        <nav className="container relative z-10 mx-auto w-full">
+          <div className="sticky h-full sm:absolute sm:left-full">
+            <ul className="sticky right-0 top-0 z-50 flex w-full bg-orange sm:right-0 sm:top-0 sm:w-fit sm:flex-col">
               {categories.map((el) => {
                 return (
-                  <li className="flex-1 sm:text-3xl text-xl" key={el.title}>
+                  <li className="flex-1 text-xl sm:text-3xl" key={el.title}>
                     <button
-                      className={`w-full text-center hover:bg-[#ffb066] transition py-3 sm:px-2 ${
+                      className={`w-full py-3 text-center transition hover:bg-[#ffb066] sm:px-2 ${
                         el.active && "bg-[#d8873b]"
                       }`}
                       onClick={handlingCategoryClick}

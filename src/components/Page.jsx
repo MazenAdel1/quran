@@ -75,12 +75,12 @@ export default function Page() {
       <button onClick={bookmarkPage}>
         <FontAwesomeIcon
           icon={faBookmark}
-          className=" text-white left-10 top-0 text-4xl fixed transition"
+          className=" fixed left-10 top-0 text-4xl text-white transition"
           ref={saveButtonRef}
         />
       </button>
-      <div className="text-primary-white py-3 md:px-10 px-3 flex flex-col gap-3 min-h-[calc(100dvh-24px)] justify-between">
-        <div className="self-end mt-3">
+      <div className="flex min-h-[calc(100dvh-24px)] flex-col justify-between gap-3 px-3 py-3 text-primary-white md:px-10">
+        <div className="mt-3 self-end">
           {surahs &&
             Object.entries(surahs).map((surah, index) => (
               <span key={surah[1].englishName}>
@@ -91,28 +91,28 @@ export default function Page() {
         </div>
         <div className="flex flex-wrap gap-2 pt-8">
           {ayahs ? (
-            <p className="md:leading-[90px] md:text-4xl sm:text-3xl sm:leading-[70px] text-2xl leading-[65px] sm:text-start text-center">
+            <p className="text-center text-2xl leading-[65px] sm:text-start sm:text-3xl sm:leading-[70px] md:text-4xl md:leading-[90px]">
               {ayahs.map((ayah) => {
                 if (
                   ayah.text.includes(
-                    `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`
+                    `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
                   ) ||
                   (ayah.text.includes(
-                    `بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`
+                    `بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
                   ) &&
                     ayah.numberInSurah === 1)
                 ) {
                   return (
                     <>
-                      <i className="block text-center font-bold mt-2">
+                      <i className="mt-2 block text-center font-bold">
                         بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ
                       </i>
                       {`${
                         ayah.text.split(
-                          `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`
+                          `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
                         )[1] ||
                         ayah.text.split(
-                          `بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`
+                          `بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
                         )[1]
                       } ${`\u06DD${ayah.numberInSurah}`} `}
                     </>
@@ -124,13 +124,13 @@ export default function Page() {
           ) : (
             <FontAwesomeIcon
               icon={faCircleNotch}
-              className="animate-spin text-4xl w-full text-center mt-10"
+              className="mt-10 w-full animate-spin text-center text-4xl"
             />
           )}
         </div>
 
         <span
-          className={`text-secondary rounded-md bg-black sm:text-2xl text-xl w-fit mt-5 py-1 px-2 ${
+          className={`mt-5 w-fit rounded-md bg-black px-2 py-1 text-xl text-secondary sm:text-2xl ${
             pageNumber % 2 == 0 && "self-end"
           }`}
         >
@@ -143,9 +143,9 @@ export default function Page() {
           +pageNumber++;
           saveButtonRef.current.classList.remove(`text-accent`);
         }}
-        className={`sm:text-2xl text-xl ${
+        className={`text-xl sm:text-2xl ${
           +pageNumber === 604 && "hidden"
-        } fixed top-1/2 left-1 -translate-y-1/2 bg-black text-primary-white sm:w-12 w-9 sm:h-12 h-9 flex justify-center items-center rounded-full`}
+        } fixed left-1 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black text-primary-white sm:h-12 sm:w-12`}
       >
         <FontAwesomeIcon icon={faArrowLeft} />
       </Link>
@@ -155,9 +155,9 @@ export default function Page() {
           +pageNumber--;
           saveButtonRef.current.classList.remove(`text-accent`);
         }}
-        className={`sm:text-2xl text-xl ${
+        className={`text-xl sm:text-2xl ${
           +pageNumber === 1 && "hidden"
-        } fixed top-1/2 right-1 -translate-y-1/2 bg-black text-primary-white sm:w-12 w-9 sm:h-12 h-9 flex justify-center items-center rounded-full`}
+        } fixed right-1 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black text-primary-white sm:h-12 sm:w-12`}
       >
         <FontAwesomeIcon icon={faArrowRight} />
       </Link>

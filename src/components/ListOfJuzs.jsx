@@ -46,7 +46,7 @@ export default function ListOfJuzs() {
       if (times <= 30) {
         const fetchJuzs = async () => {
           let res = await fetch(
-            `https://api.quran.com/api/v4/verses/by_juz/${times}`
+            `https://api.quran.com/api/v4/verses/by_juz/${times}`,
           );
           const data = await res.json();
 
@@ -74,20 +74,20 @@ export default function ListOfJuzs() {
 
   return (
     <>
-      <ul className={`flex flex-col items-center h-fit`}>
+      <ul className={`flex h-fit flex-col items-center`}>
         {juzsInfo[29].page == 582 ? (
           juzsInfo.map((juzInfo) => {
             return (
               <>
                 <li
                   key={juzInfo.page}
-                  className={`w-full text-center sm:text-3xl text-xl text-primary-white hover:bg-[#172236] transition bg-[#121C34] ${
+                  className={`w-full bg-[#121C34] text-center text-xl text-primary-white transition hover:bg-[#172236] sm:text-3xl ${
                     juzInfo.page < 582 && "border-b"
                   }`}
                 >
                   <Link
                     to={`/quran/page/${juzInfo.page}`}
-                    className="w-full h-full block py-3"
+                    className="block h-full w-full py-3"
                   >
                     {juzInfo.title}
                   </Link>
@@ -98,7 +98,7 @@ export default function ListOfJuzs() {
         ) : (
           <FontAwesomeIcon
             icon={faCircleNotch}
-            className="animate-spin text-4xl w-full text-center mt-10 text-white "
+            className="mt-10 w-full animate-spin text-center text-4xl text-white "
           />
         )}
       </ul>

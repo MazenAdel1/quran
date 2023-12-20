@@ -24,9 +24,9 @@ export default function ListOfSurahs() {
 
   return (
     <>
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col items-center justify-center">
         <div className="w-full">
-          <ul className="w-full flex justify-between bg-secondary sm:px-5 sm:py-2 p-1 sm:text-2xl text-lg text-black">
+          <ul className="flex w-full justify-between bg-secondary p-1 text-lg text-black sm:px-5 sm:py-2 sm:text-2xl">
             <li>رقم السورة</li>
             <li>السورة</li>
             <li>مكان النزول</li>
@@ -38,12 +38,12 @@ export default function ListOfSurahs() {
               <Link
                 to={`/quran/page/${surah.pages[0]}`}
                 key={surah.name_simple}
-                className={`flex justify-between items-center relative w-full sm:px-10 px-3 py-4 text-primary-white hover:bg-[#172236] transition bg-[#121C34] ${
+                className={`relative flex w-full items-center justify-between bg-[#121C34] px-3 py-4 text-primary-white transition hover:bg-[#172236] sm:px-10 ${
                   surah.id < 114 && "border-b"
                 }`}
               >
                 <span className="text-base">{surah.id}</span>
-                <h2 className="sm:text-2xl text-xl">
+                <h2 className="text-xl sm:text-2xl">
                   سورة {surah.name_arabic}{" "}
                   <span className="text-xs">[{surah.verses_count} آية]</span>
                 </h2>
@@ -56,7 +56,7 @@ export default function ListOfSurahs() {
         ) : (
           <FontAwesomeIcon
             icon={faCircleNotch}
-            className="animate-spin text-4xl w-full text-center mt-10 text-primary-white"
+            className="mt-10 w-full animate-spin text-center text-4xl text-primary-white"
           />
         )}
       </section>

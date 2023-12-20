@@ -47,19 +47,19 @@ export default function Surah() {
         />
       </audio> */}
 
-      <div className="py-3 md:px-10 px-3 text-primary-white">
-        <div className="flex justify-around gap-3 items-center pt-2">
+      <div className="px-3 py-3 text-primary-white md:px-10">
+        <div className="flex items-center justify-around gap-3 pt-2">
           <div className="text-center text-sm">رقم السورة: {surahNumber}</div>
-          <h1 className="text-4xl text-center">{arabicSurahName}</h1>
+          <h1 className="text-center text-4xl">{arabicSurahName}</h1>
           <span className="text-sm">عدد الآيات: {ayahs.length}</span>
         </div>
         <div className="flex flex-wrap gap-2 pt-6">
           {ayahs.length ? (
-            <p className="leading-[60px] text-2xl">
+            <p className="text-2xl leading-[60px]">
               {ayahs.map((ayah) => {
                 if (
                   ayah.text.includes(
-                    `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`
+                    `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
                   ) &&
                   ayah.numberInSurah === 1
                 ) {
@@ -70,7 +70,7 @@ export default function Surah() {
                       </i>
                       {`${
                         ayah.text.split(
-                          `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`
+                          `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
                         )[1]
                       } ${`\u06DD${ayah.numberInSurah}`} `}
                     </>
@@ -82,7 +82,7 @@ export default function Surah() {
           ) : (
             <FontAwesomeIcon
               icon={faCircleNotch}
-              className="animate-spin text-4xl w-full text-center mt-20"
+              className="mt-20 w-full animate-spin text-center text-4xl"
             />
           )}
         </div>
