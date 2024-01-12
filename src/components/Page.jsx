@@ -79,7 +79,7 @@ export default function Page() {
           ref={saveButtonRef}
         />
       </button>
-      <div className="flex min-h-[calc(100dvh-24px)] flex-col justify-between gap-3 px-3 py-3 text-primary-white md:px-10">
+      <div className="flex min-h-[calc(100dvh-80px)] flex-col justify-between gap-3 px-3 py-3 text-primary-white md:px-10">
         <div className="mt-3 self-end">
           {surahs &&
             Object.entries(surahs).map((surah, index) => (
@@ -93,30 +93,48 @@ export default function Page() {
           {ayahs ? (
             <p className="text-center text-2xl leading-[65px] sm:text-start sm:text-3xl sm:leading-[70px] md:text-4xl md:leading-[90px]">
               {ayahs.map((ayah) => {
-                if (
-                  ayah.text.includes(
-                    `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
-                  ) ||
-                  (ayah.text.includes(
-                    `بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
-                  ) &&
-                    ayah.numberInSurah === 1)
-                ) {
-                  return (
-                    <>
-                      <i className="mt-2 block text-center font-bold">
-                        بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ
-                      </i>
-                      {`${
-                        ayah.text.split(
-                          `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
-                        )[1] ||
-                        ayah.text.split(
-                          `بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
-                        )[1]
-                      } ${`\u06DD${ayah.numberInSurah}`} `}
-                    </>
-                  );
+                if (ayah.numberInSurah == 1 && ayah.page != 1) {
+                  if (
+                    ayah.text.includes(
+                      `بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
+                    )
+                  ) {
+                    return (
+                      <>
+                        <i
+                          key={ayah.numberInSurah}
+                          className="mt-2 block text-center font-bold"
+                        >
+                          بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ
+                        </i>
+                        {`${
+                          ayah.text.split(
+                            "بِّسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ",
+                          )[1]
+                        } ${`\u06DD${ayah.numberInSurah}`} `}
+                      </>
+                    );
+                  } else if (
+                    ayah.text.includes(
+                      `بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ`,
+                    )
+                  ) {
+                    return (
+                      <>
+                        <i
+                          key={ayah.numberInSurah}
+                          className="mt-2 block text-center font-bold"
+                        >
+                          بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ
+                        </i>
+                        {`${
+                          ayah.text.split(
+                            "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ",
+                          )[1]
+                        } ${`\u06DD${ayah.numberInSurah}`} `}
+                      </>
+                    );
+                  }
                 }
                 return `${ayah.text} ${`\u06DD${ayah.numberInSurah}`} `;
               })}
