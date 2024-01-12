@@ -16,7 +16,7 @@ export default function ListOfBookMarks() {
       {bookmark.length ? (
         <>
           <button
-            className="my-1 w-full bg-accent py-1 text-2xl text-white transition hover:bg-[#f88062]"
+            className="relative my-1 w-full bg-accent py-1 text-2xl text-white transition hover:bg-[#f88062]"
             onClick={() => {
               dispatch(cleanBookmark());
               dispatch(saveToLocalStorage(bookmark));
@@ -24,7 +24,7 @@ export default function ListOfBookMarks() {
           >
             مسح الكل
           </button>
-          <ul className="flex flex-col-reverse items-center justify-center">
+          <ul className="relative flex flex-col-reverse items-center justify-center">
             {bookmark.map((page, pageIndex) => (
               <li
                 key={page}

@@ -74,7 +74,7 @@ export default function ListOfJuzs() {
 
   return (
     <>
-      <ul className={`flex h-fit flex-col items-center`}>
+      <ul className="relative flex h-fit flex-col items-center">
         {juzsInfo[29].page == 582 ? (
           juzsInfo.map((juzInfo) => {
             return (
